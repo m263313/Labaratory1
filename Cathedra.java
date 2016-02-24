@@ -3,7 +3,7 @@ private Student[] students = new Student[0];
 private Teacher[] teachers = new Teacher[0];
 private String name;
 public Cathedra(String name){
-	this.name=name;
+	this.setName(name);
 }
 public Cathedra(){
 	this("Cath");
@@ -43,8 +43,19 @@ private String allStudentCourse( ){
 	for(int i=0;i<students.length;i++){
 		temp[i]=students[i];
 	}
-	for(int i=0;i<temp.length;i++){
+	for(int i=0;i<temp.length-1;i++){
+		for(int j =0;j<temp.length-i-1;j++){
+		if(temp[j].getCourse()>temp[j+1].getCourse()){
+			int z=temp[j].getCourse();
+			temp[j].setCourse(temp[j+1].getCourse()); 
+			temp[j+1].setCourse(z);
+			
+		}
+			
+			
+		}
 		//Tut bude sortuvannya
+		
 	}
 	for(int i=0;i<students.length;i++){
 		
@@ -73,5 +84,11 @@ private String allStudentName(){
 }
 private void allStudentCourseName(){
 	
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
 }
 }

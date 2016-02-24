@@ -12,4 +12,16 @@ public Student(){
 public String toString(){
 	return "Name "+name+" course "+course+" group "+group;
 }
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getCourse() {
+	return course;
+}
+public void setCourse(int course) {
+	this.course = course;
+}
 }

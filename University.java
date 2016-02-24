@@ -11,8 +11,29 @@ public class University{
 		temp[temp.length]= new Faculty(name );
 		faculties=temp;
 	}
-private void deleteFaculty(){
+private void deleteFaculty(String name){
+	Faculty[] temp;
+	boolean r=false;
+	for(int i=0;i<faculties.length;i++){
+		if(faculties[i].getName().equals(name)){
+			faculties[i]=null;
+			r=true;
+		}
 		
+	}
+	if(r){
+		  temp = new Faculty[faculties.length-1];
+	for(int i=0;i<faculties.length-1;i++){
+		if(faculties[i]!=null)
+		temp[i]=faculties[i];
+	}
+	}
+	else{
+		return;
+	}
+	 	
+	faculties=temp;
+	
 	}
 private void editFaculty(){
 	
