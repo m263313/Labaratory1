@@ -1,2 +1,2 @@
 # Labaratory1
-It is a govnocode
+It is a greatest project ever!
