@@ -1,14 +1,16 @@
+import java.util.Arrays;
+
 public class Cathedra{
-private Student[] students = new Student[0];
-private Teacher[] teachers = new Teacher[0];
-private String name;
+	protected Student[] students = new Student[0];
+	protected Teacher[] teachers = new Teacher[0];
+	protected String name;
 public Cathedra(String name){
 	this.setName(name);
 }
 public Cathedra(){
 	this("Cath");
 }
-private void addTeacher (String name){
+public void addTeacher (String name){
 	Teacher[] temp = new Teacher[students.length+1];
 	for(int i=0;i<teachers.length+1;i++){
 		temp[i]=teachers[i];
@@ -16,14 +18,40 @@ private void addTeacher (String name){
 	temp[temp.length]= new Teacher(name );
 	teachers=temp;
 }
-private void deleteTeacher(){
-	
+public void deleteTeacher(String name){
+	Teacher[] temp;
+	boolean r=false;
+	for(int i=0;i<teachers.length;i++){
+		if(teachers[i].getName().equals(name)){
+			teachers[i]=null;
+			r=true;
+		}
+		
+	}
+	if(r){
+		  temp = new Teacher[teachers.length-1];
+	for(int i=0;i<teachers.length-1;i++){
+		if(teachers[i]!=null)
+		temp[i]=teachers[i];
+	}
+	}
+	else{
+		return;
+	}
+	 	
+	teachers=temp;
 }
-private void editTeacher(){
-
+public void editTeacher(String name,String newName){
+	for(int i =0;i<teachers.length;i++){
+		if(teachers[i].getName().equals(name)){
+			teachers[i].setName(newName);
+			
+		}
+	}
 }
 //Max
-private void addStudent (String name,String group,int course){
+//Додати/видалити/редагувати студента/викладача до кафедри.
+public void addStudent (String name,String group,int course){
 	Student[] temp = new Student[students.length+1];
 	for(int i=0;i<students.length+1;i++){
 		temp[i]=students[i];
@@ -31,13 +59,25 @@ private void addStudent (String name,String group,int course){
 	temp[temp.length]= new Student(name,group,course);
 	students=temp;
 }
-private void deleteStudent(){
+//Додати/видалити/редагувати студента/викладача до кафедри.
+public void deleteStudent(){
 	
 }
-private void editStudent(){
+//Додати/видалити/редагувати студента/викладача до кафедри.
+public void editStudent(){
 
 }
-private String allStudentCourse( ){
+//Вивести всіх студентів кафедри вказаного курсу.
+public String studentCourse(int course){
+	String res="";
+	for(int i=0;i<students.length;i++){
+		if(students[i].getCourse()==course)
+			res+=students[i]+"/n";
+	}
+	return res;
+}
+//Вивести всіх студентів кафедри впорядкованих за курсами
+public String allStudentCourse(int course ){
 	String res="";
 	Student[] temp=new Student[students.length];
 	for(int i=0;i<students.length;i++){
@@ -63,27 +103,39 @@ private String allStudentCourse( ){
 	}
 	return res;
 }
-private String allTeacher(){
+//Вивести всіх студентів/викладачів кафедри впорядкованих за алфавітом.
+public String allTeacher(){
 	String res="";
+	Arrays.sort(teachers);
 	for(int i=0;i<teachers.length;i++){
 		res+=teachers[i]+"/n";
 	}
 	return res;
 }
-private String allStudentName(){
+//Вивести всіх студентів/викладачів кафедри впорядкованих за алфавітом.
+public String allStudentName(){
 	String res="";
-	Student[] temp=new Student[students.length];
+	String[] temp=new String[students.length];
 	for(int i=0;i<students.length;i++){
-		temp[i]=students[i];
+		temp[i]=students[i].getName();
 	}
-	//Tut bude sortuvannya
+	Arrays.sort(temp);
 	for(int i=0;i<students.length;i++){
+	for(int j=0;i<students.length;i++){
+		if(students[i].getName().equals(temp[j])){
+			
+		}
 		res+=students[i]+"/n";
+	}
 	}
 	return res;
 }
-private void allStudentCourseName(){
+//Вивести всіх студентів кафедри вказаного курсу впорядкованих за алфавітом.
+public String allStudentCourseName(int course){
+	String res="";
 	
+	
+	return res;
 }
 public String getName() {
 	return name;
