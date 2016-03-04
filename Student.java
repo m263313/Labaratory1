@@ -1,6 +1,6 @@
 public class Student{
-private String name,group;
-private int course;
+	protected String name,group;
+	protected int course;
 public Student(String name,String group,int course){
 			this.course=course;
 			this.name=name;
