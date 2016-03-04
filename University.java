@@ -3,7 +3,7 @@ public class University{
 	
 	
 	
-	private void addFaculty(String name){
+	public void addFaculty(String name){
 		Faculty[] temp = new Faculty[faculties.length+1];
 		for(int i=0;i<faculties.length+1;i++){
 			temp[i]=faculties[i];
@@ -11,7 +11,7 @@ public class University{
 		temp[temp.length]= new Faculty(name );
 		faculties=temp;
 	}
-private void deleteFaculty(String name){
+	public void deleteFaculty(String name){
 	Faculty[] temp;
 	boolean r=false;
 	for(int i=0;i<faculties.length;i++){
@@ -35,7 +35,7 @@ private void deleteFaculty(String name){
 	faculties=temp;
 	
 	}
-private void editFaculty(String name,String newName){
+	public void editFaculty(String name,String newName){
 	
 	for(int i =0;i<faculties.length;i++){
 		if(faculties[i].getName().equals(name)){
@@ -44,20 +44,25 @@ private void editFaculty(String name,String newName){
 		}
 	}
 }
-private void findStudentCourse(){
+//Знайти студента/викладача за ПІБ, курсом або групою.
+	public void findStudentCourse(){
 	
 }
-private void findStudentName(){
+//Знайти студента/викладача за ПІБ, курсом або групою.
+	public void findStudentName(){
 	
 }
-private void findStudentGroup(){
+//Знайти студента/викладача за ПІБ, курсом або групою.
+	public void findStudentGroup(){
 	
 }
-
-private void findTeacher(){
+//Знайти студента/викладача за ПІБ, курсом або групою.
+	public void findTeacher(){
 	
 }
-private void allStudentCourse(){
+//Вивести всіх студентів впорядкованих за курсами
+	public String allStudentCourse(){
+	String res="";
 		for(int i=0;i<faculties.length;i++){
 			for(int j=0;j<faculties[i].cathedras.length;j++){
 				for(int f=0;f<faculties[i].cathedras[j].students.length;f++){
@@ -68,5 +73,6 @@ private void allStudentCourse(){
 				
 			}
 		}
+		return res;
 	}
 }
