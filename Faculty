@@ -1,0 +1,77 @@
+public class Faculty {
+	protected Cathedra[] cathedras = new Cathedra[0];
+	protected String name;
+public Faculty(String name){
+	this.name=name;
+}
+public Faculty(){
+	this("Fac");
+}
+public void addCathedra (){
+	Cathedra[] temp = new Cathedra[cathedras.length+1];
+	for(int i=0;i<cathedras.length+1;i++){
+		temp[i]=cathedras[i];
+	}
+	temp[temp.length]= new Cathedra(name );
+	cathedras=temp;
+}
+public void deleteCathedra(String name){
+	Cathedra[] temp;
+	boolean r=false;
+	for(int i=0;i<cathedras.length;i++){
+		if(cathedras[i].getName().equals(name)){
+			cathedras[i]=null;
+			r=true;
+		}
+		
+	}
+	if(r){
+		  temp = new Cathedra[cathedras.length-1];
+	for(int i=0;i<cathedras.length-1;i++){
+		if(cathedras[i]!=null)
+		temp[i]=cathedras[i];
+	}
+	}
+	else{
+		return;
+	}
+	 	
+	cathedras=temp;
+}
+public void editCathedra(String name,String newName){
+	for(int i =0;i<cathedras.length;i++){
+		if(cathedras[i].getName().equals(name)){
+			cathedras[i].setName(newName);
+			
+		}
+	}
+}
+
+public String allStudentCourse(){
+	String res="";
+		for(int i=0;i<cathedras.length;i++){
+			for(int j=0;j<cathedras[i].students.length;j++){
+					System.out.println(cathedras[i].students[j]);
+			}
+				
+				
+				
+		}
+		
+		return res;
+}
+//Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
+public void allStudentName(){
+	
+}
+//Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
+public void allTeacherName(){
+	
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+}
