@@ -80,6 +80,7 @@ public String allStudentName(){
 
 
 //Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
+//+Max
 public String allTeacherName(){
 	int k=0,l=0;
 	String res="";
