@@ -180,11 +180,26 @@
 		return res;
 	}
 	//Вивести всіх студентів кафедри вказаного курсу впорядкованих за алфавітом.
-	//-
+	//+Max
 	public String allStudentCourseName(int course){
 		String res="";
-		
-		
+			int k=0,l=0;
+		for(int i=0;i<students.length;i++){
+			if(course==students[i].getCourse()){
+				k++;
+			}
+		}
+		Student[] temp= new Student[k];
+		for(int i=0;i<students.length;i++){
+			if(course==students[i].getCourse()){
+				temp[l]=students[i];
+				l++;
+			}
+		}
+		Arrays.sort(temp);
+		for(int i=0;i<k;i++){
+			res+=temp[i]+"\n";
+		}
 		return res;
 	}
 	public String getName() {
