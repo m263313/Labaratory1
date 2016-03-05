@@ -86,20 +86,20 @@ public String allStudentCourse(int course ){
 	for(int i=0;i<temp.length-1;i++){
 		for(int j =0;j<temp.length-i-1;j++){
 		if(temp[j].getCourse()>temp[j+1].getCourse()){
-			int z=temp[j].getCourse();
-			temp[j].setCourse(temp[j+1].getCourse()); 
-			temp[j+1].setCourse(z);
+			Student z=temp[j];
+			temp[j]=temp[j+1]; 
+			temp[j+1]=z;
 			
 		}
 			
 			
 		}
-		//Tut bude sortuvannya
+	 
 		
 	}
 	for(int i=0;i<students.length;i++){
 		
-		res+=students[i]+"/n";
+		res+=temp[i]+"/n";
 	}
 	return res;
 }
