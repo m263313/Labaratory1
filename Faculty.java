@@ -7,14 +7,16 @@ public Faculty(String name){
 public Faculty(){
 	this("Fac");
 }
-public void addCathedra (){
+//+Max
+public void addCathedra (String name){
 	Cathedra[] temp = new Cathedra[cathedras.length+1];
-	for(int i=0;i<cathedras.length+1;i++){
+	for(int i=0;i<cathedras.length;i++){
 		temp[i]=cathedras[i];
 	}
-	temp[temp.length]= new Cathedra(name );
+	temp[temp.length-1]= new Cathedra(name );
 	cathedras=temp;
 }
+//+Max
 public void deleteCathedra(String name){
 	Cathedra[] temp;
 	boolean r=false;
@@ -38,6 +40,7 @@ public void deleteCathedra(String name){
 	 	
 	cathedras=temp;
 }
+//+Max
 public void editCathedra(String name,String newName){
 	for(int i =0;i<cathedras.length;i++){
 		if(cathedras[i].getName().equals(name)){
@@ -47,9 +50,7 @@ public void editCathedra(String name,String newName){
 	}
 }
 
-public void allStudentCourse(){
-	
-}
+
 //Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
 public void allStudentName(){
 	
