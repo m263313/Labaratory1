@@ -47,19 +47,19 @@ public class University{
 	}
 }
 //Знайти студента/викладача за ПІБ, курсом або групою.
-	public void findStudentCourse(){
+	public void findStudentCourse(int course){
 	
 }
 //Знайти студента/викладача за ПІБ, курсом або групою.
-	public void findStudentName(){
-	
-}
-//Знайти студента/викладача за ПІБ, курсом або групою.
-	public void findStudentGroup(){
+	public void findStudentName(String name){
 		
 }
 //Знайти студента/викладача за ПІБ, курсом або групою.
-	public void findTeacher(){
+	public void findStudentGroup(String group){
+		
+}
+//Знайти студента/викладача за ПІБ, курсом або групою.
+	public void findTeacher(String name){
 	
 }
 //Вивести всіх студентів впорядкованих за курсами
