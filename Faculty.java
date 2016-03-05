@@ -1,10 +1,12 @@
+import java.util.Arrays;
+
 public class Faculty {
 	protected Cathedra[] cathedras = new Cathedra[0];
 	protected String name;
 public Faculty(String name){
 	this.name=name;
 }
-public Faculty(){
+public Faculty(){	
 	this("Fac");
 }
 //+Max
@@ -52,11 +54,53 @@ public void editCathedra(String name,String newName){
 
 
 //Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
-public void allStudentName(){
-	
-}
+//+Max
+public String allStudentName(){
+	int k=0,l=0;
+	String res="";
+	for(int i=0;i<cathedras.length;i++){
+		for(int j=0;j<cathedras[i].students.length;j++){
+			k++; 	
+		}
+		
+	}
+	Student[] temp=new Student[k];
+	for(int i=0;i<cathedras.length;i++){
+		for(int j=0;j<cathedras[i].students.length;j++){
+		temp[l]=cathedras[i].students[j];
+		l++;
+		}
+	}
+	Arrays.sort(temp);
+		for(int i=0;i<k;i++){
+			res+=temp[i]+"\n";
+		}
+		return res;
+		}
+
+
 //Вивести всіх студентів/викладачів факультета впорядкованих за алфавітом.
-public void allTeacherName(){
+public String allTeacherName(){
+	int k=0,l=0;
+	String res="";
+	for(int i=0;i<cathedras.length;i++){
+		for(int j=0;j<cathedras[i].teachers.length;j++){
+			k++; 	
+		}
+		
+	}
+	String[] temp=new String[k];
+	for(int i=0;i<cathedras.length;i++){
+		for(int j=0;j<cathedras[i].teachers.length;j++){
+		temp[l]=cathedras[i].teachers[j].getName();
+		l++;
+		}
+	}
+	Arrays.sort(temp);
+		for(int i=0;i<k;i++){
+			res+=temp[i]+"\n";
+		}
+		return res;
 	
 }
 public String getName() {
