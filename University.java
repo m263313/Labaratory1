@@ -1,16 +1,17 @@
 public class University{
-	private Faculty[] faculties=new Faculty[0];
+	protected Faculty[] faculties=new Faculty[0];
 	
 	
-	
+	//+Max
 	public void addFaculty(String name){
 		Faculty[] temp = new Faculty[faculties.length+1];
-		for(int i=0;i<faculties.length+1;i++){
+		for(int i=0;i<faculties.length;i++){
 			temp[i]=faculties[i];
 		}
-		temp[temp.length]= new Faculty(name );
+		temp[temp.length-1]= new Faculty(name );
 		faculties=temp;
 	}
+	//+Max
 	public void deleteFaculty(String name){
 	Faculty[] temp;
 	boolean r=false;
@@ -35,6 +36,7 @@ public class University{
 	faculties=temp;
 	
 	}
+	//+Max
 	public void editFaculty(String name,String newName){
 	
 	for(int i =0;i<faculties.length;i++){
@@ -54,13 +56,14 @@ public class University{
 }
 //Знайти студента/викладача за ПІБ, курсом або групою.
 	public void findStudentGroup(){
-	
+		
 }
 //Знайти студента/викладача за ПІБ, курсом або групою.
 	public void findTeacher(){
 	
 }
 //Вивести всіх студентів впорядкованих за курсами
+	//-
 	public String allStudentCourse(){
 	String res="";
 		for(int i=0;i<faculties.length;i++){
