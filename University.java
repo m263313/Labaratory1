@@ -66,15 +66,43 @@ public class University{
 	//-
 	public String allStudentCourse(){
 	String res="";
+	int k=0,l=0;
 		for(int i=0;i<faculties.length;i++){
 			for(int j=0;j<faculties[i].cathedras.length;j++){
 				for(int f=0;f<faculties[i].cathedras[j].students.length;f++){
-					System.out.println(faculties[i].cathedras[j].students[f]);
+					 k++;
 				}
+			}
+		}
+		Student[] temp =new Student[k];
+		
+		for(int i=0;i<faculties.length;i++){
+			for(int j=0;j<faculties[i].cathedras.length;j++){
+				for(int f=0;f<faculties[i].cathedras[j].students.length;f++){
+					
 				
+				temp[l]=faculties[i].cathedras[j].students[f];
+				l++;
+				}
+			}
+		}
+		for(int i=0;i<k-1;i++){
+			for(int j =0;j<k-i-1;j++){
+			if(temp[j].getCourse()>temp[j+1].getCourse()){
+				Student z=temp[j];
+				temp[j]=temp[j+1]; 
+				temp[j+1]=z;
+				
+			}
 				
 				
 			}
+		
+		}
+		
+for(int i=0;i<k;i++){
+			
+			res+=temp[i]+"\n";
 		}
 		return res;
 	}
