@@ -163,21 +163,19 @@
 		return res;
 	}
 	//Вивести всіх студентів/викладачів кафедри впорядкованих за алфавітом.
-	//-
+	//+Max
 	public String allStudentName(){
 		String res="";
-		String[] temp=new String[students.length];
+/*		String[] temp=new String[students.length];
 		for(int i=0;i<students.length;i++){
 			temp[i]=students[i].getName();
 		}
-		Arrays.sort(temp);
+		*/
+		Arrays.sort(students);
 		for(int i=0;i<students.length;i++){
-		for(int j=0;i<students.length;i++){
-			if(students[i].getName().equals(temp[j])){
-				
-			}
+		 
 			res+=students[i]+"\n";
-		}
+		 
 		}
 		return res;
 	}
