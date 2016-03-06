@@ -359,6 +359,9 @@ public class Test{
 						if(nameFa.equals(NaUKMA.faculties[r]))
 							System.out.println(NaUKMA.faculties[r].allTeacherName());
 					break;
+					default:
+						System.out.println("you entered is not defined number");
+						break;
 				}break;
 			case 7:
 				System.out.println("Enter the name of the faculty of the department: ");
@@ -397,6 +400,9 @@ public class Test{
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(CathedraT.equals(NaUKMA.faculties[r].cathedras[a]))
 									System.out.println(NaUKMA.faculties[r].cathedras[a].allTeacher());
+					break;
+				default:
+					System.out.println("you entered is not defined number");
 					break;
 				}break;
 			case 9:
