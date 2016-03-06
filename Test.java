@@ -26,7 +26,14 @@ public class Test{
 				case 1:
 					System.out.println("Enter the name of the faculty: ");
 					String name=DataInput.getLine();
+					boolean n=true;
+					for(int k=0;k<name.length();k++)
+						if(name.charAt(k)<='A'||name.charAt(k)>='z')
+							n=false;
+					if(n)
 					NaUKMA.addFaculty(name);
+					else
+						System.out.println("Entered not allowed characters");
 					break;
 				case 2:
 					System.out.println("Enter the name of the faculty: ");
@@ -38,7 +45,18 @@ public class Test{
 					String eName=DataInput.getLine();
 					System.out.println("Enter the name of the faculty: ");
 					String newEName=DataInput.getLine();
-					NaUKMA.editFaculty(eName, newEName);
+					boolean v=true;
+					for(int k=0;k<newEName.length();k++)
+						if(newEName.charAt(k)<='A'||newEName.charAt(k)>='z')
+							v=false;
+					if(v)
+							NaUKMA.editFaculty(eName, newEName);
+					else
+						System.out.println("Entered not allowed characters");
+					
+					break;
+				default:
+					System.out.println("you entered is not defined number");
 					break;
 				}break;
 			case 2:
@@ -52,9 +70,18 @@ public class Test{
 					String fac=DataInput.getLine();
 					System.out.println("Enter the name of the department: ");
 					String cathedra=DataInput.getLine();
+					boolean n=true;
+					for(int k=0;k<cathedra.length();k++)
+						if(cathedra.charAt(k)<='A'||cathedra.charAt(k)>='z')
+							n=false;
+					if(n){
 					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(fac.equals(NaUKMA.faculties[r]))
 							NaUKMA.faculties[r].addCathedra(cathedra);
+						else
+							System.out.println("This name exists");
+					}else
+						System.out.println("Entered not allowed characters");
 					break;
 					
 				case 2:
@@ -65,6 +92,8 @@ public class Test{
 					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(dFac.equals(NaUKMA.faculties[r]))
 							NaUKMA.faculties[r].deleteCathedra(dCathedra);
+						else
+							System.out.println("This name exists");
 					break;
 					
 				case 3:
@@ -74,9 +103,16 @@ public class Test{
 					String eCathedra=DataInput.getLine();
 					System.out.println("Enter a new name of the department: ");
 					String newECathedra=DataInput.getLine();
-					for(int r=0;r<NaUKMA.faculties.length;r++)
-						if(eFac.equals(NaUKMA.faculties[r]))
-							NaUKMA.faculties[r].editCathedra(eCathedra,newECathedra);
+					boolean v=true;
+					for(int k=0;k<newECathedra.length();k++)
+						if(newECathedra.charAt(k)<='A'||newECathedra.charAt(k)>='z')
+							v=false;
+					if(v){
+							for(int r=0;r<NaUKMA.faculties.length;r++)
+								if(eFac.equals(NaUKMA.faculties[r]))
+									NaUKMA.faculties[r].editCathedra(eCathedra,newECathedra);
+					}else
+							System.out.println("Entered not allowed characters");
 					break;
 					
 				}break;
@@ -96,16 +132,30 @@ public class Test{
 					String aCathedra=DataInput.getLine();
 					System.out.println("Enter the name of the student: ");
 					String name=DataInput.getLine();
-					System.out.println("Enter the group of the student: ");
-					String group=DataInput.getLine();
-					System.out.println("Enter the course of the student: ");
-					int course=DataInput.getInt();
-					for(int r=0;r<NaUKMA.faculties.length;r++)
-						if(aFac.equals(NaUKMA.faculties[r]))
-							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
-								if(aCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
-									NaUKMA.faculties[r].cathedras[a].addStudent(name, group, course);
-								
+					boolean m=true;
+					for(int k=0;k<name.length();k++)
+						if(name.charAt(k)<='A'||name.charAt(k)>='z'||name.charAt(k)!=' ')
+							m=false;
+					if(m){
+						System.out.println("Enter the group of the student: ");
+						String group=DataInput.getLine();
+						boolean n=true;
+						for(int k=0;k<group.length();k++)
+							if(group.charAt(k)<='A'||group.charAt(k)>='z')
+								n=false;
+						if(n){
+							System.out.println("Enter the course of the student: ");
+							int course=DataInput.getInt();
+							if(course>=0||course<=7)
+								for(int r=0;r<NaUKMA.faculties.length;r++)
+									if(aFac.equals(NaUKMA.faculties[r]))
+										for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+											if(aCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
+												NaUKMA.faculties[r].cathedras[a].addStudent(name, group, course);
+							}else
+								System.out.println("Entered not allowed characters");
+					}else
+						System.out.println("Entered not allowed characters");
 							
 							
 					break;
@@ -154,17 +204,35 @@ public class Test{
 									case 1:
 										System.out.println("Enter a new name of the student: ");
 										String newName=DataInput.getLine();
-										NaUKMA.faculties[r].cathedras[a].editStudentName(ename, egroup, ecourse, newName);
+										boolean x=true;
+										for(int k=0;k<newName.length();k++)
+											if(newName.charAt(k)<='A'||newName.charAt(k)>='z')
+												if(newName.charAt(k)!=' ')
+												x=false;
+										if(x)
+											NaUKMA.faculties[r].cathedras[a].editStudentName(ename, egroup, ecourse, newName);
+										else
+											System.out.println("Entered not allowed characters");
 										break;
 									case 2:
 										System.out.println("Enter a new course of the student: ");
 										int newCourse=DataInput.getInt();
-										NaUKMA.faculties[r].cathedras[a].editStudentCourse(ename, egroup, ecourse, newCourse);
+										if(newCourse>=0||newCourse<=7)
+											NaUKMA.faculties[r].cathedras[a].editStudentCourse(ename, egroup, ecourse, newCourse);
+										else 
+											System.out.println("Entered not allowed characters");
 										break;
 									case 3:
 										System.out.println("Enter a new group of the student: ");
 										String newGroup=DataInput.getLine();
-										NaUKMA.faculties[r].cathedras[a].editStudentGroup(ename, egroup,ecourse,newGroup);
+										boolean g=true;
+										for(int k=0;k<newGroup.length();k++)
+											if(newGroup.charAt(k)<='A'||newGroup.charAt(k)>='z')
+												g=false;
+										if(g)
+											NaUKMA.faculties[r].cathedras[a].editStudentGroup(ename, egroup,ecourse,newGroup);
+										else
+											System.out.println("Entered not allowed characters");
 										break;
 									}	break;
 								}
@@ -176,12 +244,19 @@ public class Test{
 					String adCathedra=DataInput.getLine();
 					System.out.println("Enter the name of the teacher: ");
 					String aname=DataInput.getLine();
+					boolean p=true;
+					for(int k=0;k<aname.length();k++)
+						if(aname.charAt(k)<='A'||aname.charAt(k)>='z')
+							if(aname.charAt(k)!=' ')
+							p=false;
+					if(p){
 					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(adFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(adCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
 									NaUKMA.faculties[r].cathedras[a].addTeacher(aname);
-								
+					}else
+						System.out.println("Entered not allowed characters");
 					break;
 							
 						
@@ -216,9 +291,20 @@ public class Test{
 								if(edCathedra.equals(NaUKMA.faculties[r].cathedras[a])){
 										System.out.println("Enter a new name of the teacher: ");
 										String newName=DataInput.getLine();
+										boolean u=true;
+										for(int k=0;k<newName.length();k++)
+											if(newName.charAt(k)<='A'||newName.charAt(k)>='z')
+												if(newName.charAt(k)!=' ')
+												u=false;
+										if(u)
 										NaUKMA.faculties[r].cathedras[a].editTeacher(edname,newName);
-								
+										else
+											System.out.println("Entered not allowed characters");
 								}
+					break;
+					default:
+						System.out.println("you entered is not defined number");
+						break;
 				}break;
 			case 4:
 				System.out.println("If you want Find student by name press 1");
@@ -247,7 +333,10 @@ public class Test{
 					String nameT=DataInput.getLine();
 					System.out.println(NaUKMA.findTeacher(nameT));
 					break;
-				}
+					default:
+						System.out.println("you entered is not defined number");
+						break;
+				}break;
 			case 5:
 				System.out.println(NaUKMA.allStudentCourse());
 				break;
