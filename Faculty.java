@@ -37,6 +37,7 @@ public void deleteCathedra(String name){
 	}
 	}
 	else{
+		System.out.println("There is no such cathedra");
 		return;
 	}
 	 	
@@ -47,9 +48,10 @@ public void editCathedra(String name,String newName){
 	for(int i =0;i<cathedras.length;i++){
 		if(cathedras[i].getName().equals(name)){
 			cathedras[i].setName(newName);
-			
+			return;
 		}
 	}
+	System.out.println("There is no such cathedra");
 }
 
 
@@ -75,6 +77,8 @@ public String allStudentName(){
 		for(int i=0;i<k;i++){
 			res+=temp[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are no students";
 		return res;
 		}
 
@@ -101,6 +105,8 @@ public String allTeacherName(){
 		for(int i=0;i<k;i++){
 			res+=temp[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are no teachers";
 		return res;
 	
 }
