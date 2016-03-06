@@ -38,18 +38,24 @@
 		}
 		}
 		else{
+			System.out.println("There is no such teacher");
 			return;
 		}
 		 	
 		teachers=temp;
 	}
+	//+Max
 	public void editTeacher(String name,String newName){
+		//boolean r=false;
 		for(int i =0;i<teachers.length;i++){
 			if(teachers[i].getName().equals(name)){
 				teachers[i].setName(newName);
-				
+				 return;
 			}
 		}
+	 
+			System.out.println("There is no such teacher");
+		
 	}
 	//+Max
 	//Додати/видалити/редагувати студента/викладача до кафедри.
@@ -62,6 +68,7 @@
 		students=temp;
 	}
 	//Додати/видалити/редагувати студента/викладача до кафедри.
+	//+Max
 	public void deleteStudent(String name,String group,int course){
 		boolean r=false;
 		Student[] temp;
@@ -79,6 +86,7 @@
 		}
 		}
 		else{
+			System.out.println("There is no such student");
 			return;
 		}
 		 	
@@ -87,28 +95,37 @@
 	//Додати/видалити/редагувати студента/викладача до кафедри.
 	//+Max
 	public void editStudentName(String name,String group,int course,String newName){
+	//	boolean r=false;
 	for(int i=0;i<students.length;i++){
 		if(students[i].getCourse()==course && students[i].getGroup().equals(group) && students[i].getName().equals(name)){
 			students[i].setName(newName);
+			return;
 		}
 	}
+	System.out.println("There is no such student");
 	}
 	//+Max
 	public void editStudentCourse(String name,String group,int course,int newCourse ){
+	//	boolean r=false;
 		for(int i=0;i<students.length;i++){
 			if(students[i].getCourse()==course && students[i].getGroup().equals(group) && students[i].getName().equals(name)){
 				students[i].setCourse(newCourse);
 				return;
 			}
 		}
+		System.out.println("There is no such student");
 	}
 	//+Max
+ 
 	public void editStudentGroup(String name,String group,int course,String newGroup){
+	//	boolean r=false;
 		for(int i=0;i<students.length;i++){
 			if(students[i].getCourse()==course && students[i].getGroup().equals(group) && students[i].getName().equals(name)){
 				students[i].setGroup(newGroup);
+				return;
 			}
 		}
+		System.out.println("There is no such student");
 	}
 	//Вивести всіх студентів кафедри вказаного курсу.
 	//+Max
@@ -118,11 +135,15 @@
 			if(students[i].getCourse()==course)
 				res+=students[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are not such students";
 		return res;
 	}
 	//Вивести всіх студентів кафедри впорядкованих за курсами
 	//+Max
+	
 	public String allStudentCourse( ){
+		
 		String res="";
 		Student[] temp=new Student[students.length];
 		for(int i=0;i<students.length;i++){
@@ -145,6 +166,8 @@
 			
 			res+=temp[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are not such students";
 		return res;
 	}
 	//Вивести всіх студентів/викладачів кафедри впорядкованих за алфавітом.
@@ -160,6 +183,8 @@
 		for(int i=0;i<temp.length;i++){
 			res+=temp[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are not such teachers";
 		return res;
 	}
 	//Вивести всіх студентів/викладачів кафедри впорядкованих за алфавітом.
@@ -177,6 +202,8 @@
 			res+=students[i]+"\n";
 		 
 		}
+		if(res.equals(""))
+			res+="There are not such students";
 		return res;
 	}
 	//Вивести всіх студентів кафедри вказаного курсу впорядкованих за алфавітом.
@@ -200,6 +227,8 @@
 		for(int i=0;i<k;i++){
 			res+=temp[i]+"\n";
 		}
+		if(res.equals(""))
+			res+="There are not such students";
 		return res;
 	}
 	public String getName() {
