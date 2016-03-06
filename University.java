@@ -30,6 +30,7 @@
 		}
 		}
 		else{
+			System.out.println("There is no such faculty");
 			return;
 		}
 		 	
@@ -38,13 +39,15 @@
 		}
 		//+Max
 		public void editFaculty(String name,String newName){
-		
+		boolean r=false;
 		for(int i =0;i<faculties.length;i++){
 			if(faculties[i].getName().equals(name)){
 				faculties[i].setName(newName);
-				
+				r=true;
 			}
 		}
+		if(!r)
+			System.out.println("There is no such faculty");
 	}
 	//+Max
 	//Знайти студента/викладача за ПІБ, курсом або групою.
@@ -59,6 +62,8 @@
 				}
 	
 					}
+			if(res.equals(""))
+				res+="There are not such students";
 			return res;
 	}
 	//+Max
@@ -74,6 +79,8 @@
 				}
 	
 					}
+			if(res.equals(""))
+				res+="There are not such students";
 			return res;
 	}
 	//+Max
@@ -89,6 +96,8 @@
 				}
 	
 					}
+			if(res.equals(""))
+				res+="There are not such students";
 			return res;
 	}
 	//Знайти студента/викладача за ПІБ, курсом або групою.
@@ -102,7 +111,8 @@
 							res+=faculties[i].cathedras[j].teachers[f]+"\n";
 					}
 				}
-	
+				if(res.equals(""))
+					res+="There are not such teachers";
 					}
 			return res;
 	}
@@ -148,6 +158,8 @@
 				
 				res+=temp[i]+"\n";
 			}
+	if(res.equals(""))
+		res+="There are no students";
 			return res;
 		}
 	}
