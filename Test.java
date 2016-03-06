@@ -432,9 +432,10 @@ public class Test{
 								System.out.println(NaUKMA.faculties[r].cathedras[a].allStudentCourseName(course));
 							}break;
 			default:
+				if(i!=11)
 				System.out.println("you entered is not defined number");
 				break;
 			}
-		}
+		}System.out.println("you finished");
 	}
 }
