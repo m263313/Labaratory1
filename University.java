@@ -8,6 +8,7 @@
 			for(int i=0;i<faculties.length;i++){
 				temp[i]=faculties[i];
 			}
+			System.out.println("Successful addition of faculty");
 			temp[temp.length-1]= new Faculty(name );
 			faculties=temp;
 		}
