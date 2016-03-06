@@ -15,6 +15,8 @@ public void addCathedra (String name){
 	for(int i=0;i<cathedras.length;i++){
 		temp[i]=cathedras[i];
 	}
+	
+	System.out.println("Successful addition of cathedra");
 	temp[temp.length-1]= new Cathedra(name );
 	cathedras=temp;
 }
