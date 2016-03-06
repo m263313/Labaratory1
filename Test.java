@@ -1,8 +1,8 @@
 public class Test{
 	public static void main(String[] args){
 		University NaUKMA =new University();
-		int p=1;
-		while(p==1){
+		int i=0;
+		while(i!=11){
 			System.out.println("What do you want?");
 			System.out.println("If you want Create / Delete / Edit Department press 1");
 			System.out.println("If you want Create / delete / edit department faculty press 2");
@@ -14,7 +14,8 @@ public class Test{
 			System.out.println("If you want Output of students / teachers of the department ordered alphabetically press 8");
 			System.out.println("If you want Output of all students of this course press 9");
 			System.out.println("If you want Output of all students of this course ordered alphabetically press 10");
-			int i=DataInput.getInt();
+			System.out.println("To complete press 11");
+			i=DataInput.getInt();
 			switch(i){
 			case 1:
 				System.out.println("If you want Create Department press 1");
@@ -26,17 +27,20 @@ public class Test{
 					System.out.println("Enter the name of the faculty: ");
 					String name=DataInput.getLine();
 					NaUKMA.addFaculty(name);
+					break;
 				case 2:
 					System.out.println("Enter the name of the faculty: ");
 					String dName=DataInput.getLine();
 					NaUKMA.deleteFaculty(dName);
+					break;
 				case 3:	
 					System.out.println("Enter the name of the faculty: ");
 					String eName=DataInput.getLine();
 					System.out.println("Enter the name of the faculty: ");
 					String newEName=DataInput.getLine();
 					NaUKMA.editFaculty(eName, newEName);
-				}
+					break;
+				}break;
 			case 2:
 				System.out.println("If you want Create department faculty press 1");
 				System.out.println("If you want delete department faculty press 2");
@@ -48,20 +52,20 @@ public class Test{
 					String fac=DataInput.getLine();
 					System.out.println("Enter the name of the department: ");
 					String cathedra=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(fac.equals(NaUKMA.faculties[r]))
 							NaUKMA.faculties[r].addCathedra(cathedra);
-						
+					break;
 					
 				case 2:
 					System.out.println("Enter the name of the faculty of the department: ");
 					String dFac=DataInput.getLine();
 					System.out.println("Enter the name of the department: ");
 					String dCathedra=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(dFac.equals(NaUKMA.faculties[r]))
 							NaUKMA.faculties[r].deleteCathedra(dCathedra);
-						
+					break;
 					
 				case 3:
 					System.out.println("Enter the name of the faculty of the department: ");
@@ -70,12 +74,12 @@ public class Test{
 					String eCathedra=DataInput.getLine();
 					System.out.println("Enter a new name of the department: ");
 					String newECathedra=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(eFac.equals(NaUKMA.faculties[r]))
 							NaUKMA.faculties[r].editCathedra(eCathedra,newECathedra);
-						
+					break;
 					
-				}
+				}break;
 			case 3:
 				System.out.println("If you want Add student to department press 1");
 				System.out.println("If you want remove student from department press 2");
@@ -96,7 +100,7 @@ public class Test{
 					String group=DataInput.getLine();
 					System.out.println("Enter the course of the student: ");
 					int course=DataInput.getInt();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(aFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(aCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
@@ -104,7 +108,7 @@ public class Test{
 								
 							
 							
-						
+					break;
 					
 				case 2:
 					System.out.println("Enter the name of the faculty of the department: ");
@@ -117,14 +121,14 @@ public class Test{
 					String dgroup=DataInput.getLine();
 					System.out.println("Enter the course of the student: ");
 					int dcourse=DataInput.getInt();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(dFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(dCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
 									NaUKMA.faculties[r].cathedras[a].deleteStudent(dname, dgroup, dcourse);
 								
 							
-							
+					break;
 						
 					
 				case 3:
@@ -138,7 +142,7 @@ public class Test{
 					String egroup=DataInput.getLine();
 					System.out.println("Enter the course of the student: ");
 					int ecourse=DataInput.getInt();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(eFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(eCathedra.equals(NaUKMA.faculties[r].cathedras[a])){
@@ -151,18 +155,20 @@ public class Test{
 										System.out.println("Enter a new name of the student: ");
 										String newName=DataInput.getLine();
 										NaUKMA.faculties[r].cathedras[a].editStudentName(ename, egroup, ecourse, newName);
+										break;
 									case 2:
 										System.out.println("Enter a new course of the student: ");
 										int newCourse=DataInput.getInt();
 										NaUKMA.faculties[r].cathedras[a].editStudentCourse(ename, egroup, ecourse, newCourse);
-									
+										break;
 									case 3:
 										System.out.println("Enter a new group of the student: ");
 										String newGroup=DataInput.getLine();
 										NaUKMA.faculties[r].cathedras[a].editStudentGroup(ename, egroup,ecourse,newGroup);
-									}	
+										break;
+									}	break;
 								}
-							
+					break;
 				case 4:
 					System.out.println("Enter the name of the faculty of the department: ");
 					String adFac=DataInput.getLine();
@@ -170,13 +176,13 @@ public class Test{
 					String adCathedra=DataInput.getLine();
 					System.out.println("Enter the name of the teacher: ");
 					String aname=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(adFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(adCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
 									NaUKMA.faculties[r].cathedras[a].addTeacher(aname);
 								
-							
+					break;
 							
 						
 					
@@ -187,7 +193,7 @@ public class Test{
 					String deCathedra=DataInput.getLine();
 					System.out.println("Enter the name of the teacher: ");
 					String dename=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(deFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(deCathedra.equals(NaUKMA.faculties[r].cathedras[a]))
@@ -195,7 +201,7 @@ public class Test{
 								
 							
 							
-						
+					break;
 					
 				case 6:
 					System.out.println("Enter the name of the faculty of the department: ");
@@ -204,7 +210,7 @@ public class Test{
 					String edCathedra=DataInput.getLine();
 					System.out.println("Enter the name of the teacher: ");
 					String edname=DataInput.getLine();
-					for(int r=0;i<NaUKMA.faculties.length;i++)
+					for(int r=0;r<NaUKMA.faculties.length;r++)
 						if(edFac.equals(NaUKMA.faculties[r]))
 							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
 								if(edCathedra.equals(NaUKMA.faculties[r].cathedras[a])){
@@ -213,7 +219,126 @@ public class Test{
 										NaUKMA.faculties[r].cathedras[a].editTeacher(edname,newName);
 								
 								}
+				}break;
+			case 4:
+				System.out.println("If you want Find student by name press 1");
+				System.out.println("If you want Find student by course press 2");
+				System.out.println("If you want Find student by group press 3");
+				System.out.println("If you want Find teacher by name press 4");
+				int e=DataInput.getInt();
+				switch(e){
+				case 1:
+					System.out.println("Enter the name of the student: ");
+					String nameS=DataInput.getLine();
+					System.out.println(NaUKMA.findStudentName(nameS));
+					break;
+				case 2:
+					System.out.println("Enter the course of the student: ");
+					int courseS=DataInput.getInt();
+					System.out.println(NaUKMA.findStudentCourse(courseS));
+					break;			
+				case 3:
+					System.out.println("Enter the groupe of the student: ");
+					String groupS=DataInput.getLine();
+					System.out.println(NaUKMA.findStudentGroup(groupS));
+					break;
+				case 4:
+					System.out.println("Enter the name of the teacher: ");
+					String nameT=DataInput.getLine();
+					System.out.println(NaUKMA.findTeacher(nameT));
+					break;
 				}
+			case 5:
+				System.out.println(NaUKMA.allStudentCourse());
+				break;
+			case 6:
+				System.out.println("If you want Output of students Faculty alphabetically ordered press 1");
+				System.out.println("If you want Output of teachers Faculty alphabetically ordered press 2");
+				int y=DataInput.getInt();
+				switch(y){
+				case 1:
+					System.out.println("Enter the name of the faculty: ");
+					String nameF=DataInput.getLine();
+					for(int r=0;r<NaUKMA.faculties.length;r++)
+						if(nameF.equals(NaUKMA.faculties[r]))
+							System.out.println(NaUKMA.faculties[r].allStudentName());
+					break;
+				case 2:
+					System.out.println("Enter the name of the faculty: ");
+					String nameFa=DataInput.getLine();
+					for(int r=0;r<NaUKMA.faculties.length;r++)
+						if(nameFa.equals(NaUKMA.faculties[r]))
+							System.out.println(NaUKMA.faculties[r].allTeacherName());
+					break;
+				}break;
+			case 7:
+				System.out.println("Enter the name of the faculty of the department: ");
+				String eFac=DataInput.getLine();
+				System.out.println("Enter the name of the department: ");
+				String eCathedra=DataInput.getLine();
+				for(int r=0;r<NaUKMA.faculties.length;r++)
+					if(eFac.equals(NaUKMA.faculties[r]))
+						for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+							if(eCathedra.equals(NaUKMA.faculties[r].cathedras[a])){
+								System.out.println(NaUKMA.faculties[r].cathedras[a].allStudentCourse());
+							}break;
+			case 8:
+				System.out.println("If you want Output of students of the department ordered alphabetically press 1");
+				System.out.println("If you want Output of teachers of the department ordered alphabetically press 2");
+				int u=DataInput.getInt();
+				switch(u){
+				case 1:
+					System.out.println("Enter the name of the faculty of the department: ");
+					String Fac=DataInput.getLine();
+					System.out.println("Enter the name of the department: ");
+					String Cathedra=DataInput.getLine();
+					for(int r=0;r<NaUKMA.faculties.length;r++)
+						if(Fac.equals(NaUKMA.faculties[r]))
+							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+								if(Cathedra.equals(NaUKMA.faculties[r].cathedras[a]))
+									System.out.println(NaUKMA.faculties[r].cathedras[a].allStudentName());
+					break;
+				case 2:
+					System.out.println("Enter the name of the faculty of the department: ");
+					String FacT=DataInput.getLine();
+					System.out.println("Enter the name of the department: ");
+					String CathedraT=DataInput.getLine();
+					for(int r=0;r<NaUKMA.faculties.length;r++)
+						if(FacT.equals(NaUKMA.faculties[r]))
+							for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+								if(CathedraT.equals(NaUKMA.faculties[r].cathedras[a]))
+									System.out.println(NaUKMA.faculties[r].cathedras[a].allTeacher());
+					break;
+				}break;
+			case 9:
+				System.out.println("Enter the name of the faculty of the department: ");
+				String FacT=DataInput.getLine();
+				System.out.println("Enter the name of the department: ");
+				String CathedraT=DataInput.getLine();
+				for(int r=0;r<NaUKMA.faculties.length;r++)
+					if(FacT.equals(NaUKMA.faculties[r]))
+						for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+							if(CathedraT.equals(NaUKMA.faculties[r].cathedras[a])){
+								System.out.println("Enter the course: ");
+								int course=DataInput.getInt();
+								System.out.println(NaUKMA.faculties[r].cathedras[a].studentCourse(course));
+							}break;
+			case 10:
+				System.out.println("Enter the name of the faculty of the department: ");
+				String Fac=DataInput.getLine();
+				System.out.println("Enter the name of the department: ");
+				String Cathedra=DataInput.getLine();
+				for(int r=0;r<NaUKMA.faculties.length;r++)
+					if(Fac.equals(NaUKMA.faculties[r]))
+						for(int a=0;a<NaUKMA.faculties[r].cathedras.length;a++)
+							if(Cathedra.equals(NaUKMA.faculties[r].cathedras[a])){
+								System.out.println("Enter the course: ");
+								int course=DataInput.getInt();
+								System.out.println(NaUKMA.faculties[r].cathedras[a].allStudentCourseName(course));
+							}break;
+			default:
+				System.out.println("you entered is not defined number");
+				break;
 			}
 		}
 	}
