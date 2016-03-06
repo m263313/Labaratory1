@@ -16,6 +16,7 @@
 		for(int i=0;i<teachers.length;i++){
 			temp[i]=teachers[i];
 		}
+		System.out.println("Successful addition of teacher");
 		temp[temp.length-1]= new Teacher(name );
 		teachers=temp;
 	}
@@ -64,6 +65,7 @@
 		for(int i=0;i<students.length;i++){
 			temp[i]=students[i];
 		}
+		System.out.println("Successful addition of student");
 		temp[temp.length-1]= new Student(name,group,course);
 		students=temp;
 	}
