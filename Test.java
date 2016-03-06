@@ -433,9 +433,9 @@ public class Test{
 							}break;
 			default:
 				if(i!=11)
-				System.out.println("you entered is not defined number");
+				System.out.println("You entered is not defined number");
 				break;
 			}
-		}System.out.println("you finished");
+		}System.out.println("You finished");
 	}
 }
